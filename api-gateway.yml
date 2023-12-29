@@ -1,0 +1,10 @@
+server:
+  port: 8090
+
+spring:
+  cloud:
+    gateway:
+      discovery: 
+        locator:
+          enabled: true #if you want automated routing then you need to enable this one
+          lower-case-service-id: true

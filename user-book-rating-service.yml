@@ -2,8 +2,6 @@ server:
   port: 8082
 
 spring:
-  application:
-    name: user-book-rating-service
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url:  jdbc:mysql://localhost:3306/microdb?useSSL=false
@@ -24,3 +22,9 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

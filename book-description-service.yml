@@ -1,7 +1,3 @@
-spring:
-  application:
-    name: book-description-service
-
 server:
   port: 8081
 
@@ -20,3 +16,10 @@ mongodb:
     serverSelectionTimeout: 3500
     connectionTimeout: 300000
     readTimeout: 300000
+
+# for acturator refresh purpose
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
