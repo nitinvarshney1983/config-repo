@@ -14,3 +14,9 @@ spring:
           predicates[0]: Path=/book-details/**
           predicates[1]: Method=GET
           filters[0]: RemoveRequestHeader=Cookie
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
