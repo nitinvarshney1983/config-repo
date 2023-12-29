@@ -1,7 +1,11 @@
 server:
-  port: 8083
+  port: 0 #spring will assign a random port
   servlet:
     context-path: /book-details
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 rest:
   client:
