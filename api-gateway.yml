@@ -4,7 +4,13 @@ server:
 spring:
   cloud:
     gateway:
-      discovery: 
-        locator:
-          enabled: true #if you want automated routing then you need to enable this one
-          lower-case-service-id: true
+#      discovery: 
+#        locator:
+#          enabled: true #if you want automated routing then you need to enable this one
+#          lower-case-service-id: true
+        routes[0]:
+          id: book-details
+          uri: lb://book-details-service
+          predicates[0]: Path=/book-details/**
+          predicates[1]: Method=GET
+          filters[0]: RemoveRequestHeader=Cookie
