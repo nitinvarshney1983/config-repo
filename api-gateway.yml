@@ -11,9 +11,11 @@ spring:
         routes[0]:
           id: book-details
           uri: lb://book-details-service
-          predicates[0]: Path=/book-details/**
+#          predicates[0]: Path=/book-details/**
+          predicates[0]: Path=/bd/**
           predicates[1]: Method=GET
           filters[0]: RemoveRequestHeader=Cookie
+          filters[1]: RewritePath=/bd/**, /book-details/** # changed predicate to support rewrite path filter
 
 management:
   endpoints:
