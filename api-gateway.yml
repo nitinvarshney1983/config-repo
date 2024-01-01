@@ -19,7 +19,7 @@ spring:
         routes[1]:
           id: user-details
           uri: lb://user-details-service
-          predicates[0]: Path:/user-details/**
+          predicates[0]: "Path=/user-details/**"
           predicates[1]: Method=GET,POST,PUT,DELETE
           filters[0]: RemoveRequestHeader=Cookie
 
