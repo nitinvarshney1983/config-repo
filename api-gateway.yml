@@ -16,6 +16,12 @@ spring:
           predicates[1]: Method=GET
           filters[0]: RemoveRequestHeader=Cookie
           filters[1]: "RewritePath=/bd/(?<segment>.*), /book-details/${segment}" # changed predicate to support rewrite path filter
+        routes[1]:
+          id: user-details
+          uri: lb://user-details-service
+          predicates[0]: "Path:/user-details/**"
+          predicates[1]: Method=GET,POST,PUT,DELETE
+          filters[0]: RemoveRequestHeader=Cookie
 
 management:
   endpoints:

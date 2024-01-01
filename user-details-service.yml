@@ -1,6 +1,8 @@
 server:
   port: 0 #spring will assign a random port
-
+  servlet:
+    context-path: /user-details
+    
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
