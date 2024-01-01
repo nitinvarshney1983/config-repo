@@ -1,0 +1,34 @@
+server:
+  port: 0 #spring will assign a random port
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/userdb?useSSL=false
+    username: root
+    password: password
+    max-active: 50
+  jpa:
+    hibernate:
+      ddl-auto: create
+      show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
