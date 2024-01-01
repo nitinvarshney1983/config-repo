@@ -2,7 +2,7 @@ server:
   port: 0 #spring will assign a random port
   servlet:
     context-path: /user-details
-    
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -16,7 +16,7 @@ spring:
     max-active: 50
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       show-sql: true
 
 logging:
